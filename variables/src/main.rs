@@ -54,5 +54,11 @@ fn main() {
     println!("six_point_four: {}", six_point_four);
     println!("one: {}", one);
 
-
+    let a = [1, 2, 3, 4, 5];
+    let month = ["January", "February", "March", "April", "May", "June", "July",
+    			 "August", "September", "October", "November", "December"];
+    
+    println!("first a: {}", a[0]);
+    println!("second a: {}", a[1]);
+    println!("month: {}", month.len());
 }
