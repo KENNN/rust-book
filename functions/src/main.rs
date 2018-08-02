@@ -7,9 +7,12 @@ fn main() {
     let x = 5;
     let y  = {
     	let x = 3;
-    	x + 1
+    	x + 1 
     };
     println!("y: {}", y);
+
+    let x = five();
+    println!("x: {}", x);
 }
 
 fn another_function1() {
@@ -23,4 +26,8 @@ fn another_function2(x: i32) {
 fn another_function3(x: i32, y: i32) {
 	println!("x: {}", x);	
 	println!("y: {}", y);	
+}
+
+fn five() -> i32 {
+	5
 }
