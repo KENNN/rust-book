@@ -3,6 +3,13 @@ fn main() {
     another_function1();
     another_function2(3);
     another_function3(5, 6);
+
+    let x = 5;
+    let y  = {
+    	let x = 3;
+    	x + 1
+    };
+    println!("y: {}", y);
 }
 
 fn another_function1() {
