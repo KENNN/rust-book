@@ -16,5 +16,4 @@ fn another_function2(x: i32) {
 fn another_function3(x: i32, y: i32) {
 	println!("x: {}", x);	
 	println!("y: {}", y);	
-
 }
