@@ -1,4 +1,13 @@
 fn main() {
+	let mut s = String::from("hello");
+	s.push_str(", world.");
+	println!("{}", s);
+
+	let s1 = String::from("hello");
+	let s2 = s1.clone();
+	println!("s1: {}, s2:{}", s1, s2);
+
+
 	let s = String::from("hello");
 	takes_ownership(s);
 
@@ -6,8 +15,9 @@ fn main() {
 	makes_copy(x);
 
 	let s1 = gives_ownership();
-	let s2 = String::from("hello");
+	let s2 = String::from("hello"); //moved
 	let s3 = takes_and_gives_back(s2);
+	println!("s1: {}, s3: {}",s1, s3);
 }
 
 fn takes_ownership(some_string: String){
