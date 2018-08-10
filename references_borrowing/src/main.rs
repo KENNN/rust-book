@@ -10,6 +10,29 @@ fn main() {
     let mut s = String::from("hello");
     change(&mut s);
     println!("s: {}", s);
+
+
+	/* error: we can have only one mutable reference
+    let mut s = String::from("hello");
+    let r1 = &mut s;
+   	let r2 = &mut s;
+   	println!("r1: {}, r2: {}", r1, r2);
+   	*/
+
+   	let mut s = String::from("hello");
+   	{
+   		let r1 = &mut s;
+   		println!("r1: {}", r1);
+   	}
+   	let r2 = &mut s;
+   	println!("r2: {}", r2);
+
+   	/* error: but multiple immutable references thireselves are ok
+   	let mut s = String::from("hello");
+   	let r1 = &s;
+   	let r2 = &s;
+   	let r3 = &mut s;
+   	*/
 }
 
 fn calculate_length(s: &String) -> usize {
