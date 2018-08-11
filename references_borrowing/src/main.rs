@@ -33,6 +33,13 @@ fn main() {
    	let r2 = &s;
    	let r3 = &mut s;
    	*/
+
+	/* error: dangling refference 
+   	let reference_to_nothing = dangle();
+	*/
+
+	let reference_no_dangling = no_dangle();
+	println!("no dangling: {}", reference_no_dangling);
 }
 
 fn calculate_length(s: &String) -> usize {
@@ -48,3 +55,18 @@ fn change(some_string: &String) {
 fn change(some_string: &mut String) {
 	some_string.push_str(", world");
 }
+
+/* 
+fn dangle() -> &String {
+	let s = String::from("hello");
+	&s
+}
+*/
+
+fn no_dangle() -> String {
+	let s = String::from("hello");
+	s
+}
+
+
+
