@@ -42,6 +42,11 @@ fn main() {
 	println!("{:?}", word);
 	let word = first_word3(my_string_literal);
 	println!("{:?}", word);
+
+	// Other Slices
+	let a = [1, 2, 3, 4, 5];
+	let slice = &a[1..3];
+	println!("{:?}", slice);
 }
 
 fn first_word(s: &String) -> usize {
