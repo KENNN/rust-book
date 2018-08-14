@@ -4,6 +4,7 @@ fn main() {
 	s.clear();
 	println!("{:?}", word);
 
+	// String Slices
 	let s = String::from("hello world");
 	let hello = &s[0..5];
 	let world = &s[6..11];
@@ -28,8 +29,11 @@ fn main() {
     // error: cannot make mutable reference after making immutable one 
 	// s.clear();
 
-	// String literals are slices, so the're 
+	// String Literals Are Slices
+	// So they're immutable
+	// let s = "Hello, world!";
 
+	// String Slices as Parameters
 	let my_string = String::from("hello, world");
 	let word = first_word3(&my_string[..]);
 	println!("{:?}", word);
