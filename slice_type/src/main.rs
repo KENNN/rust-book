@@ -27,6 +27,17 @@ fn main() {
     
     // error: cannot make mutable reference after making immutable one 
 	// s.clear();
+
+	// String literals are slices, so the're 
+
+	let my_string = String::from("hello, world");
+	let word = first_word3(&my_string[..]);
+	println!("{:?}", word);
+	let my_string_literal = "hello world";
+	let word = first_word3(&my_string_literal[..]);
+	println!("{:?}", word);
+	let word = first_word3(my_string_literal);
+	println!("{:?}", word);
 }
 
 fn first_word(s: &String) -> usize {
@@ -41,6 +52,17 @@ fn first_word(s: &String) -> usize {
 }
 
 fn first_word2(s: &String) -> &str {
+	let bytes = s.as_bytes();
+
+	for (i, &item) in bytes.iter().enumerate() {
+		if item == b' ' {
+			return &s[0..i];
+		}
+	}
+	&s[..]
+}
+
+fn first_word3(s: &str) -> &str {
 	let bytes = s.as_bytes();
 
 	for (i, &item) in bytes.iter().enumerate() {
