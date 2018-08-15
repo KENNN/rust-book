@@ -1,0 +1,6 @@
+[package]
+name = "defining_and_instantiating_structs"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
