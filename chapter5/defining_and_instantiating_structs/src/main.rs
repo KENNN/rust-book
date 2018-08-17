@@ -20,6 +20,15 @@ fn main() {
     // using the field init shorthand when variables and fields have the same name
     let user3 = build_user2(String::from("someone@example.com2"), String::from("someoneusername345"));
     println!("{:?}", user3.email);
+
+    // Creating Instances From Other Instances With Struct Update Syntax
+    let user4 = User {
+        email: String::from("another@example.com"),
+        username: String::from("anotherusername567"),
+        ..user1
+    };
+
+    println!("{:?}", user4.active);
 }
 
 struct User {
