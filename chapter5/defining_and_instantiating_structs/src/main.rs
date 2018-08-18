@@ -27,8 +27,13 @@ fn main() {
         username: String::from("anotherusername567"),
         ..user1
     };
-
     println!("{:?}", user4.active);
+
+    // Using Tuple Structs without Named Fields to Create Different Types
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+    println!("{:?}", black.0);
+    println!("{:?}", origin.1);
 }
 
 struct User {
@@ -37,6 +42,10 @@ struct User {
     sign_in_count: u64,
     active: bool,
 }
+
+struct Color (i32, i32, i32);
+struct Point (i32, i32, i32);
+
 
 
 fn build_user(email: String, username: String) -> User {
