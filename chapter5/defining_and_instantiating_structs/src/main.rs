@@ -34,6 +34,16 @@ fn main() {
     let origin = Point(0, 0, 0);
     println!("{:?}", black.0);
     println!("{:?}", origin.1);
+
+    // Ownership of Struct Data
+    /* Error: missing lifetime specifier
+    let uwl = UserWithoutLifetime {
+        email: "someone@example.com",
+        username: "someoneusername123",
+        active: true,
+        sign_in_count: 1,
+    };
+    println!("{:?}", uwl.email);*/
 }
 
 struct User {
@@ -46,6 +56,12 @@ struct User {
 struct Color (i32, i32, i32);
 struct Point (i32, i32, i32);
 
+/*struct UserWithoutLifetime {
+    username: &str,
+    email: &str,
+    sign_in_count: u64,
+    active: bool,
+}*/
 
 
 fn build_user(email: String, username: String) -> User {
