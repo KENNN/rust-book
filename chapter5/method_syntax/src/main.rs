@@ -9,7 +9,7 @@ fn main() {
     println!("Can rect1 hold rect2? {:?}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3? {:?}", rect1.can_hold(&rect3));
 
-// Associated Functions
+// Associated Functions & Multiple impl Blocks
     let sq = Rectangle::square(50);
     println!("{:?}", sq);
 }
@@ -28,7 +28,9 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
+}
 
+impl Rectangle {
     fn square(size: u32) -> Rectangle {
         Rectangle {width: size, height: size}
     }
