@@ -8,15 +8,21 @@ fn main() {
     route(IpAddrKind::V4);
     route(IpAddrKind::V6);
 
-    let home = IpAddr {
+    let home = IpAddrStruct {
         kind: IpAddrKind::V4,
         address: String::from("127.0.0.1"),
     };
 
-    let loopback = IpAddr {
+    let loopback = IpAddrStruct {
         kind: IpAddrKind::V4,
         address: String::from("::1"),
     };
+
+    println!("{:?}", home);
+    println!("{:?}", loopback);
+
+    let home = IpAddrEnum::V4(String::from("127.0.0.1"));
+    let loopback = IpAddrEnum::V6(String::from("::1"));
 
     println!("{:?}", home);
     println!("{:?}", loopback);
@@ -29,9 +35,15 @@ enum IpAddrKind {
 }
 
 #[derive(Debug)]
-struct IpAddr {
+struct IpAddrStruct {
     kind: IpAddrKind,
     address: String,
+}
+
+#[derive(Debug)]
+enum IpAddrEnum {
+    V4(String),
+    V6(String)
 }
 
 fn route(ip_type: IpAddrKind) {
