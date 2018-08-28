@@ -26,6 +26,18 @@ fn main() {
 
     println!("{:?}", home);
     println!("{:?}", loopback);
+
+    let home = IpAddrEnum2::V4(127, 0, 0, 1);
+    let loopback = IpAddrEnum2::V6(String::from("::1"));
+
+    println!("{:?}", home);
+    println!("{:?}", loopback);
+
+    let home = IpAddrEnum3::V4(Ipv4Addr{});
+    let loopback = IpAddrEnum3::V6(Ipv6Addr{});
+
+    println!("{:?}", home);
+    println!("{:?}", loopback);
 }
 
 #[derive(Debug)]
@@ -44,6 +56,24 @@ struct IpAddrStruct {
 enum IpAddrEnum {
     V4(String),
     V6(String)
+}
+
+#[derive(Debug)]
+enum IpAddrEnum2 {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+#[derive(Debug)]
+struct Ipv4Addr {}
+
+#[derive(Debug)]
+struct Ipv6Addr {}
+
+#[derive(Debug)]
+enum IpAddrEnum3 {
+    V4(Ipv4Addr),
+    V6(Ipv6Addr),
 }
 
 fn route(ip_type: IpAddrKind) {
