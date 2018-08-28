@@ -38,6 +38,10 @@ fn main() {
 
     println!("{:?}", home);
     println!("{:?}", loopback);
+
+    let m = Message::Write(String::from("hello"));
+    m.call();
+    println!("{:?}", m);
 }
 
 #[derive(Debug)]
@@ -78,4 +82,33 @@ enum IpAddrEnum3 {
 
 fn route(ip_type: IpAddrKind) {
     println!("{:?}", ip_type);
+}
+
+#[derive(Debug)]
+enum Message {
+    Quit,
+    Move { x: i32, y:i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+#[derive(Debug)]
+struct QuitMessage;
+
+#[derive(Debug)]
+struct MoveMessage {
+    x: i32,
+    y: i32,
+}
+
+#[derive(Debug)]
+struct WriteMessage(String);
+
+#[derive(Debug)]
+struct ChangeColorMessage(i32, i32, i32);
+
+impl Message {
+    fn call(&self) {
+        println!("{:?}", "called.");
+    }
 }
