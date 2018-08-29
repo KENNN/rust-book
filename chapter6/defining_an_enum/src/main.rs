@@ -42,6 +42,20 @@ fn main() {
     let m = Message::Write(String::from("hello"));
     m.call();
     println!("{:?}", m);
+
+    // The Option Enum and Its Advantages Over Null Values
+    let some_number = Some(5);
+    let some_string = Some("a string");
+    let ansent_number: Option<i32> = None;
+
+    println!("{:?}", some_number);
+    println!("{:?}", some_string);
+    println!("{:?}", ansent_number);
+
+    // no definition + between i8 and Option<i8>
+    // let x: i8 = 5;
+    // let y: Option<i8> = Some(5);
+    // let sum = x + y;
 }
 
 #[derive(Debug)]
