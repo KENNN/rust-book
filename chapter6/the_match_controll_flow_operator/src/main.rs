@@ -3,7 +3,8 @@ fn main() {
     value_in_cents(coin);
 
     // Patterns that Bind to Values
-
+    let coin2 = Coin::Quater(UsState::Alabama);
+    value_in_cents(coin2);
 }
 
 #[derive(Debug)]
@@ -23,7 +24,7 @@ fn value_in_cents(coin: Coin) -> u32 {
         Coin::Nickel => 5,
         Coin::Dime => 10,
         Coin::Quater(state) => {
-            println!("State quarter from{:?}!", state);
+            println!("State quarter from {:?}!", state);
             25
         },
     }
