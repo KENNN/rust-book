@@ -1,3 +1,5 @@
+extern crate controlling_visibility_with_pub;
+
 fn main() {
-    println!("Hello, world!");
+    controlling_visibility_with_pub::client::connect();
 }
