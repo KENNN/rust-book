@@ -32,4 +32,20 @@ fn main() {
     let first = &v[0];
     v.push(6);
     */
+
+    // Using an Enum to Store Multiple Types
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+
+    println!("{:?}", row);
+}
+
+#[derive(Debug)]
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
 }
