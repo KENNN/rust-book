@@ -60,4 +60,13 @@ fn main() {
     let hello = "Здравствуйте";
     let s = &hello[0..4];
     println!("{:?}", s);
+
+    // Methods for Iterating Over Strings
+    for c in "नमस्ते".chars() {
+    println!("{}", c);
+    }
+
+    for b in "नमस्ते".bytes() {
+    println!("{}", b);
+    }
 }
