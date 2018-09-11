@@ -56,6 +56,8 @@ fn main() {
     let s1 = String::from("hello");
     // let h = s1[0]; error
 
-
-
+    // Slicning Strings
+    let hello = "Здравствуйте";
+    let s = &hello[0..4];
+    println!("{:?}", s);
 }
