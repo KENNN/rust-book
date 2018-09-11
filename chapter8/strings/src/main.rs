@@ -51,4 +51,11 @@ fn main() {
     println!("{:?}", s);
     let s = s1 + "-" + &s2 + "-" + &s3;
     println!("{:?}", s);
+
+    // Indexing into Strings
+    let s1 = String::from("hello");
+    // let h = s1[0]; error
+
+
+
 }
