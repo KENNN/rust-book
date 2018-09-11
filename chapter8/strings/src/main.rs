@@ -38,4 +38,17 @@ fn main() {
     s.push('l');
     println!("{:?}", s);
 
+    //Appending to a String with push_str and push
+    let s1 = String::from("hello");
+    let s2 = String::from("world");
+    let s3 = s1 + &s2;
+    println!("{:?}", s3);
+
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let s = format!("{}-{}-{}", s1, s2, s3);
+    println!("{:?}", s);
+    let s = s1 + "-" + &s2 + "-" + &s3;
+    println!("{:?}", s);
 }
