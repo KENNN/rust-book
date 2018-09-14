@@ -27,4 +27,8 @@ fn main() {
     let score = scores.get(&team_name);
     println!("{:?}", score);
 
+    for (key, value) in &scores {
+        println!("{}: {}", key, value);
+    }
+
 }
