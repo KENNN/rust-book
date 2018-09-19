@@ -17,4 +17,8 @@ fn main() {
             panic!("There was a problem opening the file {:?}", error)
         },
     };
+
+    // Shortcut for Panic on Error: unwrap and expect
+    let _f = File::open("hello.txt").unwrap();
+    let _f = File::open("hello.txt").expect("Failed to open hello.txt");
 }
