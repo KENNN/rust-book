@@ -24,6 +24,9 @@ fn main() {
     // Shortcut for Panic on Error: unwrap and expect
     let _f = File::open("hello.txt").unwrap();
     let _f = File::open("hello.txt").expect("Failed to open hello.txt");
+
+    // type error
+    // let f = File::open("hello.txt")?;
 }
 
 // Propagating Errors
