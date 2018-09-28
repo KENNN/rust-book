@@ -47,3 +47,32 @@ fn largest<T>(list: &[T]) -> T {
     }
     largest
 }
+
+
+#[derive(Debug)]
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+#[derive(Debug)]
+struct Point2<T, U> {
+    x: T,
+    y: U,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+impl<T, U> Point2<T, U> {
+    fn mixup<V, W>(self, other: Point2<V, W>) -> Point2<T, W> {
+        Point2 {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
