@@ -1,16 +1,18 @@
 pub trait Summary {
-    fn summarize(&self) -> String;
+    fn summarize(&self) -> String {
+        String::from("(Read more...)")
+    }
 }
 
 #[derive(Debug)]
-pub struct NewAticle {
+pub struct NewArticle {
     pub headline: String,
     pub location: String,
     pub author: String,
     pub content: String,
 }
 
-impl Summary for NewAticle {
+impl Summary for NewArticle {
     fn summarize(&self) -> String {
         format!("{} by {} ({})", self.headline, self.author, self.location)
     }

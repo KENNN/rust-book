@@ -1,6 +1,7 @@
 mod lib;
 use lib::Summary;
 use lib::Tweet;
+use lib::NewArticle;
 
 fn main() {
     let tweet = Tweet {
@@ -11,4 +12,14 @@ fn main() {
     };
 
     println!("1 new tweet: {}", tweet.summarize());
+
+    // Default Implementations
+    let article = NewArticle {
+        headline: String::from("Penguins win the Stranley Cup Championship"),
+        location: String::from("Pittsburgh, PA, USA"),
+        author: String::from("Iceburgh"),
+        content: String::from("The Pittsburgh Penguins once again are the best hockey team in the NHL."),
+    };
+
+    println!("New article available! {}", article.summarize());
 }
