@@ -1,3 +1,6 @@
+use std::fmt::Display;
+use std::fmt::Debug;
+
 pub trait Summary {
     fn summarize_author(&self) -> String;
 
@@ -41,3 +44,13 @@ impl Summary for Tweet {
         format!("{}: {}", self.username, self.content)
     }
 }
+
+// Trait Bounds
+pub fn notify<T: Summary>(item: T) {
+    println!("Breaking news! {}", item.summarize());
+}
+
+fn some_function<T, U>(t: T, u: U) -> i32
+    where T: Display + Clone,
+          U: Clone + Debug
+{0}
