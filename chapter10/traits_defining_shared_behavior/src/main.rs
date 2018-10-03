@@ -2,6 +2,7 @@ mod lib;
 use lib::Summary;
 use lib::Tweet;
 use lib::NewArticle;
+use lib::Pair;
 
 fn main() {
     let tweet = Tweet {
@@ -22,4 +23,9 @@ fn main() {
     };
 
     println!("New article available! {}", article.summarize());
+
+    // Using Trait Bounds to Conditionally Implement Methods
+    let p = Pair::new(3, 4);
+    p.cmp_display();
+
 }
