@@ -45,10 +45,22 @@ fn main() {
     */
 }
 
-fn longest<'a> (x: &'a str, y:&'a str) -> &'a str {
+fn longest<'a> (x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
     } else {
         y
     }
 }
+
+fn longest2<'a> (x: &'a str, y: &str) -> &'a str {
+    x
+}
+
+
+/* error
+fn longest3<'a> (x: &str, y:&str) -> 'a str {
+    let result = String::from("really long string");
+    result.as_str()
+}
+*/
