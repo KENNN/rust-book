@@ -52,6 +52,9 @@ fn main() {
 
     let i = ImportantExcerpt { part: first_sentence };
     println!("{:?}", i);
+
+    // Lifetime Annotation in Method Definitions
+    println!("{}", i.announce_and_return_part("read the first sentence"));
 }
 
 fn longest<'a> (x: &'a str, y: &'a str) -> &'a str {
@@ -78,3 +81,12 @@ fn longest3<'a> (x: &str, y:&str) -> 'a str {
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
+
+impl<'a> ImportantExcerpt<'a> {
+    fn announce_and_return_part(&self, announcement: &str) -> &str {
+        println!("Attention please: {}", announcement);
+        self.part
+    }
+}
+
+
