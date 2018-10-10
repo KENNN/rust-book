@@ -55,6 +55,9 @@ fn main() {
 
     // Lifetime Annotation in Method Definitions
     println!("{}", i.announce_and_return_part("read the first sentence"));
+
+    // Static Lifetime
+    let s : &'static str = "I have a static lifetime";
 }
 
 fn longest<'a> (x: &'a str, y: &'a str) -> &'a str {
