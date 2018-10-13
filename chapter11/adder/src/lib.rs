@@ -7,12 +7,10 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 
-    /* panic
     #[test]
     fn another() {
         panic!("Make this test fail");
     }
-    */
 
     // Checking Results with the assert! Macro
     #[test]
@@ -21,6 +19,22 @@ mod tests {
         let smaller = Rectangle { length: 5, width: 1 };
 
         assert!(larger.can_hold(&smaller));
+    }
+
+     #[test]
+    fn smaller_can_hold_larger() {
+        let larger = Rectangle { length: 8, width: 7 };
+        let smaller = Rectangle { length: 5, width: 1 };
+
+        assert!(!smaller.can_hold(&larger));
+    }
+
+    #[test]
+    fn larger_can_hold_smaller_with_bug() {
+        let larger = Rectangle { length: 8, width: 7 };
+        let smaller = Rectangle { length: 5, width: 1 };
+
+        assert!(larger.can_hold_with_bug(&smaller));
     }
 }
 
@@ -33,5 +47,9 @@ pub struct Rectangle {
 impl Rectangle {
     pub fn can_hold(&self, other: &Rectangle) -> bool {
         self.length > other.length && self.width > other.width
+    }
+
+    pub fn can_hold_with_bug(&self, other: &Rectangle) -> bool {
+        self.length > other.length && self.width < other.width
     }
 }
