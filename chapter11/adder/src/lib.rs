@@ -36,6 +36,17 @@ mod tests {
 
         assert!(larger.can_hold_with_bug(&smaller));
     }
+
+    // Testing Equality with the asseet_eq! and assert_ne! Macros
+    #[test]
+    fn if_adds_two() {
+        assert_eq!(4, add_two(2));
+    }
+
+    #[test]
+    fn if_not_add_three() {
+        assert_ne!(5, add_two(2));
+    }
 }
 
 #[derive(Debug)]
@@ -52,4 +63,8 @@ impl Rectangle {
     pub fn can_hold_with_bug(&self, other: &Rectangle) -> bool {
         self.length > other.length && self.width < other.width
     }
+}
+
+pub fn add_two(a: i32) -> i32 {
+    a + 2
 }
