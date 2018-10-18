@@ -1,0 +1,6 @@
+[package]
+name = "controling_how_tests_are_run"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
