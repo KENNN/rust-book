@@ -29,6 +29,13 @@ mod tests {
     fn add_one_hundred_and_two() {
         assert_eq!(102, add_two(100));
     }
+
+    // Ignoring Some Tests Unless Specifically Requested
+    #[test]
+    #[ignore]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
 }
 
 fn prints_and_returns_10(a: i32) -> i32 {
