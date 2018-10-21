@@ -1,4 +1,5 @@
 extern crate test_organization;
+mod common;
 
 #[test]
 fn it_adds_two() {
