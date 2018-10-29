@@ -15,12 +15,7 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.filename);
 
-    let mut f = File::open(config.filename).expect("file not found");
-    let mut contents = String::new();
-
-    f.read_to_string(&mut contents)
-        .expect("something went wrong reading the file");
-    println!("With text: \n{}", contents);
+    run(config);
 }
 
 #[derive(Debug)]
@@ -47,4 +42,13 @@ fn parse_config(args: &[String]) -> Config {
     let filename = args[2].clone();
 
     Config { query, filename }
+}
+
+fn run(config: Config) {
+    let mut f = File::open(config.filename).expect("file not found");
+    let mut contents = String::new();
+
+    f.read_to_string(&mut contents)
+        .expect("something went wrong reading the file");
+    println!("With text: \n{}", contents);
 }
