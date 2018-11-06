@@ -36,7 +36,7 @@ pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut results = Vec::new();
 
     for line in contents.lines() {
-        if line.contains(query) {
+        if line.contains(&query) {
             results.push(line);
         }
     }
@@ -69,7 +69,7 @@ Pick three.
 Duct tape.";
 
         assert_eq!(
-               vec!["safe", "fast", "productive."],
+               vec!["safe, fast, productive."],
                search(query, contents)
         );
     }
@@ -79,7 +79,7 @@ Duct tape.";
         let query = "rUsT";
         let contents = "\
 Rust:
-safe, fastm productive.
+safe, fast, productive.
 Pick three.
 Trust me.";
 
