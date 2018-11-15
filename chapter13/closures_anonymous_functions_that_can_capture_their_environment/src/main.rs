@@ -9,6 +9,12 @@ fn main() {
         simulated_user_specified_value,
         simulated_random_number
     );
+
+/* compile error
+    let example_closure = |x| x;
+    let s = example_closure(String::from("hello"));
+    let n = example_closure(5);
+    */
 }
 
 fn simulated_expensive_calculation(intensity: u32) -> u32 {
@@ -18,7 +24,7 @@ fn simulated_expensive_calculation(intensity: u32) -> u32 {
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
-    let expensive_closure = |num| {
+    let expensive_closure = |num: u32| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num
@@ -46,3 +52,10 @@ fn generate_workout(intensity: u32, random_number: u32) {
         }
     }
 }
+
+/*
+fn  add_one_v1    (x: u32) -> u32 { x + 1 }
+let add_one_v2 = |x: u32| -> u32 { x + 1 };
+let add_one_v3 = |x: u32| -> u32 { x + 1 };
+let add_one_v4 = |x|               x + 1  ;
+*/
