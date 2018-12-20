@@ -1,0 +1,6 @@
+[package]
+name = "running_code_on_cleanup_with_the_drop_trait"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
