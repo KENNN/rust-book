@@ -1,0 +1,6 @@
+[package]
+name = "rct_the_reference_counted_smart_pointer"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
