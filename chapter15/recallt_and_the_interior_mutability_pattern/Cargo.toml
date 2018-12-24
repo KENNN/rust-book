@@ -1,0 +1,6 @@
+[package]
+name = "recallt_and_the_interior_mutability_pattern"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
