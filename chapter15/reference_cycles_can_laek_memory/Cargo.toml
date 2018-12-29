@@ -1,0 +1,6 @@
+[package]
+name = "reference_cycles_can_laek_memory"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
