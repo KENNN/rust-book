@@ -1,4 +1,0 @@
-mod server {
-    fn connect() {
-    }
-}

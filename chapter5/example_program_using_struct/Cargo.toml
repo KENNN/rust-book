@@ -1,6 +1,0 @@
-[package]
-name = "example_program_using_struct"
-version = "0.1.0"
-authors = ["KENN <cent.rngttwt@gmail.com>"]
-
-[dependencies]
