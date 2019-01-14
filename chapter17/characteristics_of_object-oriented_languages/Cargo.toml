@@ -1,0 +1,6 @@
+[package]
+name = "characteristics_of_object-oriented_languages"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
