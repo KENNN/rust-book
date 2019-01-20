@@ -1,0 +1,6 @@
+[package]
+name = "imprementing_an_object-oriented_design_pattern"
+version = "0.1.0"
+authors = ["KENN <cent.rngttwt@gmail.com>"]
+
+[dependencies]
