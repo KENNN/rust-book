@@ -1,3 +1,5 @@
+use std::boxed::Box;
+
 pub struct Post {
     state: Option<Box<State>>,
     content: String,
@@ -18,10 +20,28 @@ impl Post {
     pub fn content(&self) -> &str {
         ""
     }
+
+    pub fn request_review(&mut self) {
+        if let Some(s) = self.state.take() {
+            self.state = Some(s.request_review())
+        }
+    }
 }
 
-trait State {}
+trait State {
+    fn request_review(self: Box<Self>) -> Box<State>;
+}
 
 trait Draft {}
 
-impl State for Draft {}
+impl State for Draft {
+    fn request_review(self: Box<Self>) -> Box<State> {
+        Box::new(PendingReview {})
+    }
+}
+
+impl State for PendingReview {
+    fn request_review(self: Box<Self>) -> Box<State> {
+        self
+    }
+}
