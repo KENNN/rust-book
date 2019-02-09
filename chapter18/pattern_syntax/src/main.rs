@@ -82,6 +82,9 @@ fn main() {
         .sum();
 
     println!("{:?}", sum_of_squares);
+
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+    println!("feet: {}, inches: {}, x: {},  y: {}", feet, inches, x, y);
 }
 
 #[derive(Debug)]
