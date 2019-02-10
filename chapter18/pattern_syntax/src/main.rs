@@ -85,6 +85,9 @@ fn main() {
 
     let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
     println!("feet: {}, inches: {}, x: {},  y: {}", feet, inches, x, y);
+
+    foo(3, 4);
+
 }
 
 #[derive(Debug)]
@@ -99,5 +102,9 @@ enum Message {
     Move { x: i32, y: i32 },
     Write(String),
     ChangeColor(i32, i32, i32),
+}
+
+fn foo(_: i32, y:i32) {
+    println!("This code only uses the y parameter: {}", y);
 }
 
