@@ -107,6 +107,15 @@ fn main() {
             println!("Some numbers {}, {}, {}", first, third, fifth);
         },
     }
+
+    let _x = 5;
+    let y = 10;
+
+    let s = Some(String::from("Hello!"));
+    if let Some(_) = s {
+        println!("found a string");
+    }
+    println!("{:?}", s);
 }
 
 #[derive(Debug)]
