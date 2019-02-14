@@ -127,6 +127,17 @@ fn main() {
         (first, .., last) => {
             println!("Some numbers: {}, {}", first, last)},
     }
+
+    let mut robot_name = Some(String::from("Bors"));
+
+    match robot_name {
+        Some(ref mut name) => {
+            println!("Found a name: {:?}", name);
+            *name = String::from("Another name");
+        },
+        None => (),
+    }
+    println!("robot_name is: {:?}", robot_name);
 }
 
 #[derive(Debug)]
