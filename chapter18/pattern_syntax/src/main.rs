@@ -163,6 +163,20 @@ fn main() {
         4 | 5 | 6 if y => println!("yes"),
         _ => println!("no"),
     }
+
+    let msg = Message2::Hello { id: 5 };
+
+    match msg {
+        Message2::Hello { id: id_variable @ 3 ... 7 } => {
+            println!("Found an id in another range: {}", id_variable)
+        },
+        Message2::Hello { id: 10 ... 12 } => {
+            println!("Found an id in another range");
+        },
+        Message2::Hello { id } => {
+            println!("Found some other id: {}", id);
+        },
+    }
 }
 
 #[derive(Debug)]
@@ -189,3 +203,9 @@ struct Point2 {
     y: i32,
     z: i32,
 }
+
+#[derive(Debug)]
+enum Message2 {
+    Hello { id: i32 },
+}
+
