@@ -1,5 +1,37 @@
 use std::slice;
 
+static HELLO_WORLD: &str = "Hello, world!";
+static mut COUNTER: u32 = 0;
+
+ unsafe fn dangerous() {}
+
+ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
+    let len = slice.len();
+    let ptr = slice.as_mut_ptr();
+    assert!(mid <= len);
+
+    unsafe {
+        (slice::from_raw_parts_mut(ptr, mid),
+         slice::from_raw_parts_mut(ptr.offset(mid as isize), len - mid))
+     }
+}
+
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+#[no_mangle]
+pub extern "C" fn call_from_c() {
+    println!("Just called a Rust function fron C!");
+}
+
+fn add_to_count(inc: u32) {
+    unsafe {
+        COUNTER += inc;
+    }
+}
+
+
 fn main() {
     let mut num = 5;
 
@@ -32,26 +64,11 @@ fn main() {
     unsafe {
         println!("Absolute value of -3 according to C: {}", abs(-3));
     }
-}
 
- unsafe fn dangerous() {}
+    println!("name is: {}", HELLO_WORLD);
 
- fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
-    let len = slice.len();
-    let ptr = slice.as_mut_ptr();
-    assert!(mid <= len);
-
+    add_to_count(3);
     unsafe {
-        (slice::from_raw_parts_mut(ptr, mid),
-         slice::from_raw_parts_mut(ptr.offset(mid as isize), len - mid))
-     }
-}
-
-extern "C" {
-    fn abs(input: i32) -> i32;
-}
-
-#[no_mangle]
-pub extern "C" fn call_from_c() {
-    println!("Just called a Rust function fron C!");
+        println!("COUNTER: {}", COUNTER);
+    }
 }
