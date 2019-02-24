@@ -1,15 +1,19 @@
 #[derive(Debug)]
-struct Context(&str);
+struct Context<'s>(&'s str);
 
 #[derive(Debug)]
-struct Parser {
-    context: &Context,
+struct Parser<'c, 's: 'c> {
+    context: &'c Context<'s>,
 }
 
-impl Parser {
-    fn parse(&self) -> Result<(), &str> {
+impl<'c, 's> Parser<'c, 's> {
+    fn parse(&self) -> Result<(), &'s str> {
         Err(&self.context.0[1..])
     }
+}
+
+fn parse_context(context: Context) -> Result<(), &str> {
+    Parser { context: &context }.parse()
 }
 
 #[cfg(test)]
