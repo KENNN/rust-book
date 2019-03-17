@@ -1,5 +1,5 @@
 [package]
-name = "tuning_our_single-threaded_server_into_a_multithreaded_server"
+name = "hello"
 version = "0.1.0"
 authors = ["KENN <cent.rngttwt@gmail.com>"]
 

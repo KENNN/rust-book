@@ -1,9 +1,11 @@
+extern crate hello;
 use std::net::TcpListener;
 use std::net::TcpStream;
 use std::io::prelude::*;
 use std::fs::File;
 use std::thread;
 use std::time::Duration;
+use hello::ThreadPool;
 
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 512];
